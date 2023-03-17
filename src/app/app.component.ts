@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { environment } from '../environments/environment.development';
+import * as mapboxgl from 'mapbox-gl';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'mapsApp';
+  
+  ngOnInit(): void {
+    (mapboxgl as any).accessToken = environment.mapboxToken;
+  }
+
 }
